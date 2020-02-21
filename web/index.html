@@ -6,11 +6,51 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Object Oriented Metrics Program</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="./css/bulma.css" type="text/css"/>
+        <link rel="stylesheet" href="./fonts/css/all.css"/> 
+        <script src="./js/index.js"></script>
     </head>
     <body>
-        <div>Aquí va el inicio</div>
+        <section class="hero is-info is-bold">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">Object Oriented Metrics Program</h1>
+                </div>
+            </div>
+        </section><br><br>
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-half">
+                    <form method="POST" action="obtenerArchivo" enctype="multipart/form-data">
+                        <label class="label">Obtener Archivos .java: </label>
+                        <div class="control"> 
+                            <div class="file has-name">
+                                      <label class="file-label">
+                                          <input class="file-input" id="file-input" name="file" onchange="showFileName(event)"  type="file" multiple >
+                                        <span class="file-cta">
+                                          <span class="file-icon">
+                                            <i class="fas fa-upload"></i>
+                                          </span>
+                                          <span class="file-label">
+                                            Elige los archivos…
+                                          </span>
+                                        </span>
+                                        <span class="file-name" id="nom-file">
+                                          Nombres de archivo...
+                                        </span>
+                                          
+                                      </label>
+                            </div>
+                        </div><br>
+                       
+                        <input class="button is-danger is-medium is-fullwidth is-rounded" type="submit" value="Enviar"/>
+                    </form>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
