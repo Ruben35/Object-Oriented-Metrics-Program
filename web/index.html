@@ -4,7 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html onload="refresh()">
     <head>
         <title>Object Oriented Metrics Program</title>
         <meta charset="UTF-8">
@@ -13,41 +13,87 @@ and open the template in the editor.
         <link rel="stylesheet" href="./css/bulma.css" type="text/css"/>
         <link rel="stylesheet" href="./fonts/css/all.css"/> 
         <script src="./js/index.js"></script>
+        <style>
+            .hero.is-purple{
+                
+                border-color: #fff;
+                background: rgb(71,4,89);
+                background-image: linear-gradient(90deg, rgba(71,4,89,1) 0%, rgba(110,15,112,1) 35%, rgba(203,7,208,1) 100%);
+            }
+            .title.is-white{
+                    color: #fff;
+            }
+            .is-purple{
+                background-color: #6e0f70;
+            }
+            .list-item.is-gray{
+                background-color: #eeeeee;
+                color: #363636;
+            }
+        </style>
     </head>
     <body>
-        <section class="hero is-info is-bold">
+        <section class="hero is-purple">
             <div class="hero-body">
                 <div class="container">
-                    <h1 class="title">Object Oriented Metrics Program</h1>
+                    <h1 class="title is-white">Object Oriented Metrics Program</h1>
+                    
                 </div>
             </div>
         </section><br><br>
         <div class="container">
             <div class="columns is-centered">
+                <h2 class="subtitle ">Agregue los archivos Java que desea analizar para obtener sus:</h2>
+            </div>
+            <div class="columns content is-centered">
+                <ul>
+                    <li>Weighted Methods Per Class (WMC)</li>
+                    <li>Profundidad del árbol de herencia (DIT)</li>
+                    <li>Número de hijos (NOC)</li>
+                </ul>
+            </div>
+            <br>
+            <div class="columns is-centered">
                 <div class="column is-half">
                     <form method="POST" action="generarMetricas" enctype="multipart/form-data">
-                        <label class="label">Obtener Archivos .java: </label>
-                        <div class="control"> 
-                            <div class="file has-name">
+                        <br>
+                        <div class="columns is-centered">
+                            <div class="control"> 
+                                <div class="field">
+                                    <div class="file is-medium is-boxed"> 
                                       <label class="file-label">
-                                          <input class="file-input" id="file-input" name="file" onchange="showFileName(event)"  type="file" multiple >
+                                        <input class="file-input" id="file-input" name="file" onchange="fileValidation(event)"  type="file" accept=".java"  multiple>
                                         <span class="file-cta">
                                           <span class="file-icon">
                                             <i class="fas fa-upload"></i>
                                           </span>
                                           <span class="file-label">
-                                            Elige los archivos…
+                                            Seleccionar archivos...
                                           </span>
                                         </span>
-                                        <span class="file-name" id="nom-file">
-                                          Nombres de archivo...
-                                        </span>
-                                          
                                       </label>
+                                    </div>
+                                </div>
                             </div>
-                        </div><br>
-                       
-                        <input class="button is-danger is-medium is-fullwidth is-rounded" type="submit" value="Enviar"/>
+                        </div>
+                        <br>
+                        <div class="columns is-centered">
+                            <label class="label is-medium">Archivos .java: </label>
+                        </div>
+                        <div class="columns is-centered" id="no-files">
+                            No hay archivos que enviar
+                        </div>
+                        <div class="columns is-centered" id="name-files" style="display: none">
+                            <div class="column is-three-fifths">
+                                <div class="list" id="name-files-list">
+                                    <p class="list-item is-gray">
+                                      Ejemplo
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <input class="button is-dark is-medium is-fullwidth is-rounded" id="boton" disabled type="submit" value="Enviar"/>
                     </form>
                 </div>
             </div>
