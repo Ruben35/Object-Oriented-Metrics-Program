@@ -7,10 +7,12 @@
 function showFileName( event ) {
     var input = event.srcElement;
     var no_files=document.getElementById("no-files");
+    var no_files2=document.getElementById("no-files-2");
     var name_files=document.getElementById("name-files");
     var name_files_list=document.getElementById("name-files-list");
     var boton=document.getElementById("boton");
     no_files.style.display="none";
+    no_files2.style.display="none";
     name_files.style.display="";
     name_files_list.innerHTML="";
     boton.disabled=false;
@@ -21,9 +23,11 @@ function showFileName( event ) {
 
 function disableAll(){
     var no_files=document.getElementById("no-files");
+    var no_files2=document.getElementById("no-files-2");
     var name_files=document.getElementById("name-files");
     var boton=document.getElementById("boton");
     no_files.style.display="";
+    no_files2.style.display="";
     name_files.style.display="none";
     boton.disabled=true;
 }
@@ -40,4 +44,9 @@ function fileValidation(event){
     }else{
         showFileName(event);
     }
+}
+
+function load(){
+    var btn=document.getElementById('boton');
+    btn.className+=" is-loading";
 }

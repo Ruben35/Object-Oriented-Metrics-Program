@@ -55,7 +55,7 @@ and open the template in the editor.
             <br>
             <div class="columns is-centered">
                 <div class="column is-half">
-                    <form method="POST" action="generarMetricas" enctype="multipart/form-data">
+                    <form method="POST" action="generarMetricas" onsubmit="load()" enctype="multipart/form-data">
                         <div class="columns is-centered">
                             <div class="control"> 
                                 <div class="field">
@@ -82,6 +82,9 @@ and open the template in the editor.
                         <div class="columns is-centered" id="no-files">
                             No hay archivos que enviar
                         </div>
+                        <div class="columns is-centered is-size-7 is-italic" id="no-files-2">
+                            Nota: Los archivos deben estar indentados correctamente.
+                        </div>
                         <div class="columns is-centered" id="name-files" style="display: none">
                             <div class="column is-three-fifths">
                                 <div class="list" id="name-files-list">
@@ -92,7 +95,7 @@ and open the template in the editor.
                             </div>
                         </div>
                         <br>
-                        <input class="button is-dark is-medium is-fullwidth is-rounded" id="boton" disabled type="submit" value="Enviar"/>
+                        <button class="button is-dark is-medium is-fullwidth is-rounded" id="boton" disabled type="submit">Enviar</button>
                     </form>
                 </div>
             </div>
