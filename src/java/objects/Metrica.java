@@ -5,6 +5,7 @@
  */
 package objects;
 
+import classes.MedidorClaseHija;
 import java.util.ArrayList;
 
 /**
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 public class Metrica{
     //temporales tipo de dato (lo más seguro es que sea int todos)
     private int WMC;// Complejidad
-    private int DIT;// Profundidad
+    private ArrayList<String> DIT;// Profundidad
     private int NOC;// Hijos
     private String nameOfClass;
     private ArrayList<String> methodsAndComplexity;
@@ -25,7 +26,7 @@ public class Metrica{
         this.WMC = WMC;
     }
 
-    public void setDIT(int DIT) {
+    public void setDIT(ArrayList<String> DIT) {
         this.DIT = DIT;
     }
 
@@ -51,7 +52,7 @@ public class Metrica{
         return WMC;
     }
 
-    public int getDIT() {
+    public ArrayList<String> getDIT() {
         return DIT;
     }
 

@@ -11,7 +11,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import objects.Archivo;
 
 /**
@@ -34,7 +33,7 @@ public class MedidorClaseHija {
         return numberOfChilds;
     }
     
-    private static boolean isChild(String nameOfClass,File source){
+    public static boolean isChild(String nameOfClass,File source){
         FileReader fileR = null;
         BufferedReader buffer = null;
         boolean child=false;

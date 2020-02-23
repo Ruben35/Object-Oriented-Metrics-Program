@@ -57,16 +57,19 @@
                         out.println("<div class=\"columns is-centered\">");
                     
                     String color=(i%2==0)?"is-dark":"is-light";
+                    String depth=(metricas.get(i).getDIT().size()!=0)?"<label class='has-text-weight-medium is-size-6'>Herencia: "+
+                            metricas.get(i).getDIT().toString().replace("[", "").replace("]", "").replace(", ", "&#8594;")+"</label>":"";
                     out.println("<div class='column'>"+
                         "<div class='notification "+color+"'>"+
                             "<div class='content has-text-centered '>"+
                                 "<label class='has-text-weight-bold is-size-4 is-bold' >Clase "+metricas.get(i).getNameOfClass()+"</label>"+
                                 "<div class='content'>"+
-                                "<div>Weighted Methods Per Class</div>"+
+                                "<div class='has-text-weight-semibold'>Weighted Methods Per Class</div>"+
                                 "<label class='has-text-weight-semibold is-size-4'>"+metricas.get(i).getWMC()+"</label>"+
-                                "<div>Profundidad del árbol de herencia</div>"+
-                                "<label class='has-text-weight-semibold is-size-4'>"+metricas.get(i).getDIT()+"</label>"+
-                                "<div>Número de hijos</div>"+
+                                "<div class='has-text-weight-semibold'>Profundidad del árbol de herencia</div>"+
+                                "<label class='has-text-weight-semibold is-size-4'>"+metricas.get(i).getDIT().size()+"</label><br>"+
+                                depth+
+                                "<div class='has-text-weight-semibold'>Número de hijos</div>"+
                                 "<label class='has-text-weight-semibold is-size-4'>"+metricas.get(i).getNOC()+"</label>"+
                                 "</div>"+
                             "</div>"+
