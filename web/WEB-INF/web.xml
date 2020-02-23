@@ -4,9 +4,17 @@
         <servlet-name>generarMetricas</servlet-name>
         <servlet-class>servlets.generarMetricas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>muestraMetricas</servlet-name>
+        <jsp-file>/muestraMetricas.jsp</jsp-file>
+    </servlet>
     <servlet-mapping>
         <servlet-name>generarMetricas</servlet-name>
         <url-pattern>/generarMetricas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>muestraMetricas</servlet-name>
+        <url-pattern>/muestraMetricas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

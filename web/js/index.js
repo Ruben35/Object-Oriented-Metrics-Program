@@ -41,14 +41,3 @@ function fileValidation(event){
         showFileName(event);
     }
 }
-
-function refresh() {
-    var e = document.getElementById("refreshed");
-    if (e.value === "no")
-        e.value = "yes";
-    else {
-        e.value = "no";
-        location.reload();
-    }
-}
-

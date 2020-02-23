@@ -11,7 +11,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import objects.Archivo;
+import objects.Metrica;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -43,17 +45,20 @@ public class generarMetricas extends HttpServlet {
             
         }else{
             ArrayList<Archivo> archivos=getArchivos(request); //ArrayList de Archivos subidos
-            //TEMPORAL
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Archivos Subidos</title>");  
-            out.println("</head>");
-            out.println("<body>");
+            ArrayList<Metrica> metricas= new ArrayList<>();
             for(int i=0;i<archivos.size();i++){
-                out.println("Archivo subido: " + archivos.get(i).getName() + "<br />");
+                Metrica temp=new Metrica();
+                temp.setWMC(1); //Aqui en lugar de 1 va el metodo estatico de MedidorComplejidad que haga la operacion.
+                temp.setDIT(1); //Aqui en lugar de 1 va el metodo estatico de MedidorProfundidad que haga la operacion.
+                temp.setNOC(1); //Aqui en lugar de 1 va el metodo estatico de MedidorClaseHija que haga la operacion.
+                temp.setNameOfClass(archivos.get(i).getName());
+                metricas.add(temp);
             }
-            out.println("</body>");
-            out.println("</html>");
+            
+            HttpSession sesion= request.getSession();
+            
+            sesion.setAttribute("metricas", metricas);
+            response.sendRedirect("./muestraMetricas");
         }
         
     }
@@ -84,7 +89,7 @@ public class generarMetricas extends HttpServlet {
         try { 
             // Parse the request to get file items.
             List fileItems = upload.parseRequest(request);
-
+            
             // Process the uploaded file items
             Iterator i = fileItems.iterator();
 
