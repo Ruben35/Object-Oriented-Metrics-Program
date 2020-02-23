@@ -51,7 +51,8 @@ public class generarMetricas extends HttpServlet {
                 temp.setWMC(1); //Aqui en lugar de 1 va el metodo estatico de MedidorComplejidad que haga la operacion.
                 temp.setDIT(2); //Aqui en lugar de 1 va el metodo estatico de MedidorProfundidad que haga la operacion.
                 temp.setNOC(3); //Aqui en lugar de 1 va el metodo estatico de MedidorClaseHija que haga la operacion.
-                temp.setNameOfClass(archivos.get(i).getName());
+                temp.setMethodsAndComplexity(new ArrayList<>()); //Aqui en lugar de arraylist va el metodo estatico de MedidorProfundidad
+                temp.setNameOfClass(archivos.get(i).getName());             //Que me de strings "metodoUno() | WM: 3"
                 metricas.add(temp);
             }
             

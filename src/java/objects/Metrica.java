@@ -5,7 +5,7 @@
  */
 package objects;
 
-import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,6 +17,7 @@ public class Metrica{
     private int DIT;// Profundidad
     private int NOC;// Hijos
     private String nameOfClass;
+    private ArrayList<String> methodsAndComplexity;
     
     //Aqui van los set de cada metrica que se llenaran con los metodos estaticos de cada clase del paquete "classes"
 
@@ -34,6 +35,10 @@ public class Metrica{
     
     public void setNameOfClass(String nameOfClass){
         this.nameOfClass= nameOfClass.replace(".java", "");
+    }
+
+    public void setMethodsAndComplexity(ArrayList<String> methodsAndComplexity) {
+        this.methodsAndComplexity = methodsAndComplexity;
     }
     
     //Getters
@@ -53,4 +58,9 @@ public class Metrica{
     public int getNOC() {
         return NOC;
     }
+
+    public ArrayList<String> getMethodsAndComplexity() {
+        return methodsAndComplexity;
+    }
+    
 }
