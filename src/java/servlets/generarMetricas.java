@@ -5,6 +5,7 @@
  */
 package servlets;
 
+import classes.MedidorClaseHija;
 import java.io.*;
 import java.util.*;
 import javax.servlet.ServletException;
@@ -50,10 +51,11 @@ public class generarMetricas extends HttpServlet {
                 Metrica temp=new Metrica();
                 temp.setWMC(1); //Aqui en lugar de 1 va el metodo estatico de MedidorComplejidad que haga la operacion.
                 temp.setDIT(2); //Aqui en lugar de 1 va el metodo estatico de MedidorProfundidad que haga la operacion.
-                temp.setNOC(3); //Aqui en lugar de 1 va el metodo estatico de MedidorClaseHija que haga la operacion.
+                temp.setNOC(MedidorClaseHija.getChildsOnClass(archivos.get(i).getName(), archivos)); //Aqui en lugar de 1 va el metodo estatico de MedidorClaseHija que haga la operacion.
                 temp.setMethodsAndComplexity(new ArrayList<>()); //Aqui en lugar de arraylist va el metodo estatico de MedidorProfundidad
                 temp.setNameOfClass(archivos.get(i).getName());             //Que me de strings "metodoUno() | WM: 3"
                 metricas.add(temp);
+                
             }
             
             HttpSession sesion= request.getSession();
@@ -71,7 +73,7 @@ public class generarMetricas extends HttpServlet {
         ArrayList<Archivo> archivos = new ArrayList<>();
         
         // Check that we have a file upload request
-        filePath = request.getRealPath("/"); 
+        filePath = request.getRealPath("/temp"); 
         DiskFileItemFactory factory = new DiskFileItemFactory();
 
         // maximum size that will be stored in memory
@@ -105,7 +107,7 @@ public class generarMetricas extends HttpServlet {
                     } else {
                         file = new File( filePath + fileName.substring(fileName.lastIndexOf("\\")+1)) ;
                     }
-                    
+                    fi.write(file);
                     Archivo temp = new Archivo(file,fileName);
                     archivos.add(temp);
                 }
