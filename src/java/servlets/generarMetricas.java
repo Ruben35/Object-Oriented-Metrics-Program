@@ -49,15 +49,14 @@ public class generarMetricas extends HttpServlet {
             for(int i=0;i<archivos.size();i++){
                 Metrica temp=new Metrica();
                 temp.setWMC(1); //Aqui en lugar de 1 va el metodo estatico de MedidorComplejidad que haga la operacion.
-                temp.setDIT(1); //Aqui en lugar de 1 va el metodo estatico de MedidorProfundidad que haga la operacion.
-                temp.setNOC(1); //Aqui en lugar de 1 va el metodo estatico de MedidorClaseHija que haga la operacion.
+                temp.setDIT(2); //Aqui en lugar de 1 va el metodo estatico de MedidorProfundidad que haga la operacion.
+                temp.setNOC(3); //Aqui en lugar de 1 va el metodo estatico de MedidorClaseHija que haga la operacion.
                 temp.setNameOfClass(archivos.get(i).getName());
                 metricas.add(temp);
             }
             
             HttpSession sesion= request.getSession();
-            
-            sesion.setAttribute("metricas", metricas);
+            sesion.setAttribute("metricas",metricas);
             response.sendRedirect("./muestraMetricas");
         }
         

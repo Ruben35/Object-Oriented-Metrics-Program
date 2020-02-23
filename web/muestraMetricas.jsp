@@ -17,12 +17,11 @@
         <link rel="icon" type="image/png" href="./img/java.png" />
         <title>Metrics</title>
         <%
-            ArrayList<Metrica> metricas= new ArrayList<Metrica>();
+            ArrayList<Metrica> metricas=new ArrayList<Metrica>();
             if(sesion.getAttribute("metricas")==null){
                 response.sendRedirect("./");
-                System.out.println("paso");
             }else{
-                metricas=(ArrayList<Metrica>)request.getAttribute("metricas");
+                metricas=(ArrayList<Metrica>)sesion.getAttribute("metricas");
                 sesion.removeAttribute("metricas");
             }
         %>
@@ -51,11 +50,35 @@
             </div>
         </section><br><br>
         <section class="container">
-            <div class="columns is-centered">
-                <div>
-                    <!-- TODO -->
-                </div>
-            </div>
+            <%
+                int contadorDeClases=0;
+                for(int i=0;i<metricas.size();i++){
+                    if(contadorDeClases==0)
+                        out.println("<div class=\"columns is-centered\">");
+                    
+                    String color=(i%2==0)?"is-dark":"is-light";
+                    out.println("<div class='column'>"+
+                        "<div class='notification "+color+"'>"+
+                            "<div class='content has-text-centered '>"+
+                                "<label class='has-text-weight-bold is-size-4 is-bold' >Clase "+metricas.get(i).getNameOfClass()+"</label>"+
+                                "<div class='content'>"+
+                                "<div>Weighted Methods Per Class</div>"+
+                                "<label class='has-text-weight-semibold is-size-4'>"+metricas.get(i).getWMC()+"</label>"+
+                                "<div>Profundidad del árbol de herencia</div>"+
+                                "<label class='has-text-weight-semibold is-size-4'>"+metricas.get(i).getDIT()+"</label>"+
+                                "<div>Número de hijos</div>"+
+                                "<label class='has-text-weight-semibold is-size-4'>"+metricas.get(i).getNOC()+"</label>"+
+                                "</div>"+
+                            "</div>"+
+                        "</div>"+
+                    "</div>");
+                    contadorDeClases++;
+                    if(contadorDeClases==3){
+                        contadorDeClases=0;
+                        out.println("</div>");
+                    }
+                }
+            %>
         </section>
     </body>
  

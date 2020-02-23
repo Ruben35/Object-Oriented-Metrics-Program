@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author Ruben35
  */
-public class Metrica implements Serializable{
+public class Metrica{
     //temporales tipo de dato (lo más seguro es que sea int todos)
     private int WMC;// Complejidad
     private int DIT;// Profundidad
