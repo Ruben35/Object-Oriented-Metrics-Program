@@ -1,7 +1,13 @@
 # Object-Oriented-Metrics-Program
-A program to measure processes and quality on Object Oriented
+Un programa para medir procesos y calidad en Programación Orientada a Objetos.
+<br>En este proyecto se analiza código Java.
 
-## Instrucciones para clonar en Netbeans
+## Integrantes del equipo de desarrollo :computer:
+- Campos Ocampo Hugo Johan
+- Hernández Hernández Rubén
+- Juárez Alcantar Katia Fernanda
+
+## Instrucciones para clonar en Netbeans :wrench: 
 Los pasos para clonar este proyecto en netbeans son:
 1. **Ir** a la barra superior de netbeans y **clickear** en "_Team_", después en "_Git_" y finalmente en "_clone_".
 2. Se abrira una ventana. En el campo de "_RepositoryURL_" **pegar** la URL a este repositorio y **escribir** sus credenciales de GitHub (usuario & contraseña).
